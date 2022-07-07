@@ -48,6 +48,18 @@ namespace SuncoastMovies
 
             context.Movies.Add(newMovie);
             context.SaveChanges();
+
+            // SELECT * FROM "Movies" WHERE "Movies"."Title" = "Spaceballs";
+            var existingMovie = context.Movies.FirstOrDefault(movie => movie.Title == "SpaceBalls");
+
+            // If we found an existing movie.
+            if (existingMovie != null)
+            {
+                // Change the title of this movie.
+                existingMovie.Title = "SpaceBalls - the best movie ever";
+
+                context.SaveChanges();
+            }
         }
     }
 }
