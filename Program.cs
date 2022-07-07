@@ -37,6 +37,17 @@ namespace SuncoastMovies
                     Console.WriteLine($" - {role.CharacterName} played by {role.Actor.FullName}");
                 }
             }
+            var newMovie = new Movie
+            {
+                Title = "SpaceBalls",
+                PrimaryDirector = "Mel Brooks",
+                Genre = "Comedy",
+                YearReleased = 1987,
+                RatingId = 2
+            };
+
+            context.Movies.Add(newMovie);
+            context.SaveChanges();
         }
     }
 }
